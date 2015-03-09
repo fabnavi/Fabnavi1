@@ -40,19 +40,17 @@ gem 'rack-test', :require => 'rack/test'
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'terminal-notifier-guard'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'sqlite3'
-end
+  gem 'guard-rspec', require: false
 
-group :test do
   gem 'faker' , '~> 1.4.3'
   gem 'capybara', '~> 2.4.3'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
-end
 
-group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard'
