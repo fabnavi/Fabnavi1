@@ -1,0 +1,31 @@
+- error = @picture.errors.include?(:url)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :url, :class => 'control-label'
+  .controls
+    =f.text_field :url, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:url, :class => 'text-error') : pat(:example)
+- error = @picture.errors.include?(:thumbnail_url)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :thumbnail_url, :class => 'control-label'
+  .controls
+    =f.text_field :thumbnail_url, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:thumbnail_url, :class => 'text-error') : pat(:example)
+- error = @picture.errors.include?(:project_id)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :project_id, :class => 'control-label'
+  .controls
+    =f.text_field :project_id, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:project_id, :class => 'text-error') : pat(:example)
+- error = @picture.errors.include?(:order_in_project)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :order_in_project, :class => 'control-label'
+  .controls
+    =f.text_field :order_in_project, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:order_in_project, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:pictures, :index), :class => 'btn btn-default'

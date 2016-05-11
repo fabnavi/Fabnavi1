@@ -1,0 +1,56 @@
+!!!5
+:ruby 
+  apilist = [   
+    {:label=>"Zoom In", :url=>"actZoom",:params=>["in","1shot"]},
+    {:label=>"Zoom Out" ,:url=>"actZoom",:params=>["out","1shot"]},
+    {:label=>"takePicture" ,:url=>"actTakePicture",:params=>[]},
+    {:label=>"SetFullSize" ,:url=>"setPostviewImageSize",:params=>["Original"]},
+    {:label=>"SetSmallSize" ,:url=>"setPostviewImageSize",:params=>["2M"]},
+    {:label=>"MovieMode" ,:url=>"setShootMode",:params=>["movie"]},
+    {:label=>"StillMode" ,:url=>"setShootMode",:params=>["still"]},
+    {:label=>"MovieRecStart" ,:url=>"startMovieRec",:params=>[]},
+    {:label=>"MovieRecStop" ,:url=>"stopMovieRec",:params=>[]},
+    {:label=>"half press" ,:url=>"actHalfPressShutter",:params=>[]},
+    {:label=>"setIsoSpeedRate" ,:url=>"setIsoSpeedRate",:params=>["200"]},
+    {:label=>"get AF Pos" ,:url=>"getTouchAFPosition",:params=>[]},
+    {:label=>"set AF Pos" ,:url=>"setTouchAFPosition",:params=>[50.0,50.0]},
+    {:label=>"getBeepMode" ,:url=>"getBeepMode",:params=>[]},
+    {:label=>"setBeepMode Off" ,:url=>"setBeepMode",:params=>["Off"]},
+    {:label=>"setBeepMode On" ,:url=>"setBeepMode",:params=>["On"]},
+    {:url=>"getShootMode",:params=>[]},
+    {:url=>"getSupportedShootMode",:params=>[]},
+    {:url=>"getAvailableShootMode",:params=>[]},
+    {:url=>"getEvent",:params=>[true]},
+    {:url=>"getApplicationInfo",:params=>[]},
+    {:url=>"getVersions",:params=>[]},
+    {:url=>"getMethodTypes",:params=>[]},
+    {:url=>"getPostviewImageSize",:params=>[]},
+    {:url=>"getAvailablePostviewImageSize",:params=>[]},
+    {:url=>"getSupportedPostviewImageSize",:params=>[]},
+    {:url=>"getSelfTimer",:params=>[]},
+    {:url=>"getSupportedSelfTimer",:params=>[]},
+    {:url=>"getAvailableSelfTimer",:params=>[]}
+  ]
+
+%html
+  %head
+    = javascript_include_tag 'jquery', 'camera'
+    = stylesheet_link_tag 'apilog'
+
+  %body(onload="main()")
+    %form
+      - apilist.each do |api|
+        :ruby
+          if api[:params] == [] then
+            url="/camera/api/"+api[:url]
+          else 
+            url="/camera/api/"+api[:url]+ "?params=" + api[:params].to_s
+          end 
+          if api[:label] == nil then
+            label = api[:url]
+          else 
+            label = api[:label]
+          end
+        %input(class="api" type="button" href="#{url}" value="#{label}")
+    %div#frame
+      %div#log

@@ -1,0 +1,10 @@
+=partial 'layouts/header'
+body
+   = form_tag '/author/create', :class => 'create-form', :method => 'POST' do
+    = flash_tag (:notice)
+    = field_set_tag do
+      p
+        = label_tag :username
+        = text_field_tag :username, :value => ""
+    = field_set_tag(:class => 'buttons') do
+      = submit_tag "Create"

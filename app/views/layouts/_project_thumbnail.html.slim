@@ -1,0 +1,11 @@
+- path = project.author.name + '/' + project.project_name
+- id = project.thumbnail_picture_id
+- if id then  url = project.picture[id].try(:url) else url = "" end
+li id="#{{path}}" class="project"
+  img.thumbnail src="#{{url}}"
+  div #{{path}}
+  input type="button" class="makeButton" value="Play" 
+  - if project.author.name == session[:authorName] then
+    input type="button" class="editButton" value="Edit"
+    input type="button" class="addButton" value="Add"
+    input type="button" class="deleteButton" value="Delete"

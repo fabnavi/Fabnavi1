@@ -1,0 +1,17 @@
+=partial 'layouts/header'
+script src="https://login.persona.org/include.js"
+=stylesheet_link_tag 'common', 'play','record'
+=javascript_include_tag 'jquery', 'common','Keybind','WorkQueue','ProjectList','CameraAPI','Auth', 'Fabnavi'
+
+meta content="width=device-width user-scalable=no" name="viewport"
+body onload="Fabnavi.showProjectList()"
+  =partial 'layouts/statusbar',:locals => {:email=>@email,:name=>@name}
+  #projectList
+    ul#project-list
+    - if session[:authorName]
+      li#__newProject__ onclick="window.location='/new';" New Project
+    - @projects.each do |p|
+      =partial 'layouts/project_thumbnail',:locals => {:project=>p}
+  
+  #status
+  #notice

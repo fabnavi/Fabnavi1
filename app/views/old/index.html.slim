@@ -1,0 +1,13 @@
+doctype html
+head
+  meta charset="utf-8"
+  script src="https://login.persona.org/include.js"
+  title data-l10n-id="title" FabNavi
+=javascript_include_tag 'jquery', 'common',
+  'Keybind','CachedImageList','WorkQueue','PlayConfig','Player','Calibrator','Recorder','CameraAPI','list','PhotoList','ConfigList','OldImporter', 'Fabnavi'
+body onload="Fabnavi.importer()"
+  =partial 'layouts/statusbar',:locals => {:email=>@email,:name=>@name}
+  ul
+  -@res.each do |i|
+    li onclick="OldImporter.loadProject('#{i[:id]}')" =i[:id] 
+  #notice

@@ -1,0 +1,19 @@
+!!!
+/
+  This Source Code Form is subject to the terms of the Mozilla Public
+  \- License, v. 2.0. If a copy of the MPL was not distributed with this file,
+  \- You can obtain one at http://mozilla.org/MPL/2.0/.
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %title{"data-l10n-id" => "title"} PlayController : FabNavi
+    = stylesheet_link_tag 'common', 'play','record','qunit'
+    = javascript_include_tag 'jquery','qunit', 'common', 'Analyzer','Keybind','PlayConfig','ProjectList','Player','Calibrator','Panel','Note','record','list','test'
+    %meta{content: "width=device-width, user-scalable=no", name: "viewport"}/
+  %body
+    %h1#qunit-header
+      QUnit Test Suite
+    %h2#qunit-banner
+    %div#qunit-testrunner-toolbar
+    %h2#qunit-userAgent
+    %ol#qunit-tests

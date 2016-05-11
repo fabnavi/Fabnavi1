@@ -1,0 +1,4 @@
+=partial 'layouts/header'
+=javascript_include_tag 'jquery', 'common', 'Keybind','CachedImageList','WorkQueue','PlayConfig','Player','Calibrator','Recorder','CameraAPI','list','PhotoList','ConfigList', 'Fabnavi'
+body onload="Fabnavi.play()"
+  =partial 'layouts/content' ,:locals => {:project=>@projectData,:pictures=>@picturesData}

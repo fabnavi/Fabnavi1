@@ -1,0 +1,31 @@
+javascript:
+  PICTURES_DATA = #{{pictures.to_json}}
+  PROJECT_DATA = #{{project.to_json}}
+#contents
+  img#photo height="3715"  width="4928"  crossorigin="anonymous"
+  canvas#cvs
+  #counter
+  #panel
+    #param
+      #tab.tab_block 
+        #property_tab.tab Property
+        #calibrate_tab.tab Calibration
+        #edit_tab.tab Edit
+      #property.show
+        #projectName TEST_PROJECT
+        #projectDiscription TEST_DISCRIPTION
+        #author TEST_AUTHOR
+      #editProject.hide
+        input#takePicture type="button" value="takePicture"
+        input#shootMode type="button" value="shootMode"
+        input#setThumbnail type="button" value="set this Slide as Tumbnail"
+        input#savePlaylist type= "button"  value= "save PlayList"
+        input#delete type= "button"  value= "delete slide"
+      #calibrate.hide
+        input#zoomIn type="button" value="+"
+        input#zoomOut type="button" value="-"
+        input#aspectShift type="button" value="change Aspect Ratio"
+        input#save type="button"  value="save config"
+      #info
+        img#note alt=""
+        ul#processes

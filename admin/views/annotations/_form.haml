@@ -1,0 +1,19 @@
+- error = @annotation.errors.include?(:url)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :url, :class => 'control-label'
+  .controls
+    =f.text_field :url, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:url, :class => 'text-error') : pat(:example)
+- error = @annotation.errors.include?(:picture_id)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :picture_id, :class => 'control-label'
+  .controls
+    =f.text_field :picture_id, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:picture_id, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:annotations, :index), :class => 'btn btn-default'
